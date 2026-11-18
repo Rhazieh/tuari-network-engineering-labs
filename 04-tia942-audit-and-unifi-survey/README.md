@@ -20,3 +20,12 @@ Applied infrastructure field surveys and technical evaluations executed on the *
 
 ### 3. Functional Infrastructure & Software Comparative Analysis (`phpScheduleIt` vs `Booking Scheduler`)
 - Interviewed Data Center administrators, documented operational requirements across application versions, built **SWOT (FODA)** matrices, and evaluated infrastructure modernization impact.
+
+---
+
+## Included Technical Artifacts
+
+- [`UNICEN-Campus-WiFi-UniFi-Mesh-Report.pdf`](./UNICEN-Campus-WiFi-UniFi-Mesh-Report.pdf) — Field performance evaluation and expansion proposal for UNICEN Tandil campus Wi-Fi networks (`Ubiquiti UniFi Mesh`, PoE AP testing, coverage survey, and cost/environmental assessment).
+- [`Booking-Scheduler-vs-phpScheduleIt-Functional-Analysis.pdf`](./Booking-Scheduler-vs-phpScheduleIt-Functional-Analysis.pdf) — Comparative functional and risk assessment report evaluating room-booking infrastructure migration (`phpScheduleIt` vs `Booking Scheduler`).
+
+> *Note: The `ANSI/TIA-942` Data Center audit was completed as a slide/in-person coursework evaluation; this repository preserves the field Wi-Fi engineering report and functional system analysis reports.*

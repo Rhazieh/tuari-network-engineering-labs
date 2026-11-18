@@ -11,3 +11,11 @@ End-to-end network architecture and perimeter security project ("Colegio San Mar
 - **Linux Perimeter Security (`iptables` / Netfilter):**
   - Default-restrictive (`DROP`) policies across `INPUT`, `OUTPUT`, and `FORWARD` chains.
   - Stateful filtering (`ESTABLISHED,RELATED`), inter-zone access rules isolating administrative segments from lab/guest Wi-Fi traffic, and NAT (`MASQUERADE` / `SNAT` / `DNAT`) policies.
+
+---
+
+## Included Technical Artifacts
+
+- [`TrabajoIntegrador.drawio.png`](./TrabajoIntegrador.drawio.png) — Logical network topology diagram for "Colegio San Martín" (`10.42.0.0/16` VLSM segmentation and 4-router layout).
+- [`Trabajo Integrador - Colegio San Martín.pdf`](./Trabajo%20Integrador%20-%20Colegio%20San%20Mart%C3%ADn.pdf) — Complete VLSM subnetting tables (`/30` P2P links and LAN subnets), static routing tables, and documentation.
+- [`clase-iptables.imn`](./clase-iptables.imn) — IMUNES/CORE topology configuration file for Unit 3 `iptables` / NAT firewalling lab (`Frontera`, `ISP2`, internal LANs).

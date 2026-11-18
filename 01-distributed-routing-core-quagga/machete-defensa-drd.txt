@@ -1,0 +1,71 @@
+MACHETE DE COMANDOS - DEFENSA TPE DRD (TUARI)
+=============================================
+
+1. ENTREGA 2 (RIP, OSPF, eBGP, iBGP)
+--------------------------------------
+En cualquier router (vtysh):
+  show running-config       -> ver configuracion actual
+  show ip route             -> ver toda la tabla (C, K/S, R, O, B, >*)
+  show ip route rip         -> filtrar rutas RIP
+  show ip route ospf        -> filtrar rutas OSPF
+  show ip route bgp         -> filtrar rutas BGP
+  show ip ospf neighbor     -> confirmar vecinos OSPF (0 vecinos entre AS)
+  show ip bgp summary       -> ver sesiones BGP (State/PfxRcd con numero = OK)
+  show ip bgp               -> ver tabla BGP y Path (6000 6200 ?)
+
+Desde un host:
+  ip route                  -> ver gateway por defecto del host
+  ping -c 3 192.168.11.10   -> (desde H6202 a H6200) prueba punta a punta IPv4
+
+
+2. PARTE 3 Y TUNEL SIT (IPv6)
+-----------------------------
+En routers y hosts (Linux):
+  ip -6 addr                -> ver IPs GUA (2001:1200:...) y ULA (fd00:...)
+  ip -6 route               -> ver rutas estaticas IPv6
+  ip tunnel show            -> (en R6101 / R6201) ver tunel sit1 (local / remote)
+  ip -6 route show dev sit1 -> rutas que cruzan el tunel
+
+Desde H6202 hacia H6200:
+  ping6 -c 3 2001:1200:0:8::10   -> prueba GUA por tunel sit1
+  ping6 -c 3 fd00:0:0:8::10      -> prueba ULA por tunel sit1
+
+
+3. ENTREGA 4 (Policy Routing, DNS, UDP)
+---------------------------------------
+Inspeccion en R6101:
+  ip rule show                           -> prioridades (90 fwmark 5, 100 H6201, 110 H6202)
+  ip route show table 100                -> salida por ADSL (default via 210.0.0.2)
+  ip route show table 200                -> salida por BGP (default via 100.0.3.2)
+  iptables -t mangle -L PREROUTING -v -n -> ver marca 0x5 para UDP + contadores
+
+Pruebas desde los hosts:
+  traceroute -n -I 192.168.11.10  -> (en H6201) ICMP sale por ADSL (210.0.0.2)
+  traceroute -n 192.168.11.10     -> (en H6201) UDP sale por BGP (100.0.3.2)
+  traceroute -n -I 192.168.11.10  -> (en H6202) sale por BGP (100.0.3.2)
+  ping -c 2 8.8.8.8               -> (en H6202) Destination Host Unreachable (10.100.2.2)
+  ping -c 2 -W 1 8.8.8.8          -> (en H6200) 100% packet loss sin respuesta (blackhole)
+
+
+4. SI TE HACEN CONFIGURAR ALGO A MANO EN VIVO
+--------------------------------------------
+- Tunel SIT (ej. R6101):
+  ip tunnel add sit1 mode sit local 210.0.0.1 remote 220.0.1.2 ttl 64
+  ip link set sit1 up
+  ip -6 addr add 2001:1200:0:5::1/64 dev sit1
+
+- Regla + tabla RPDB:
+  ip route add default via 210.0.0.2 table 100
+  ip rule add prio 100 from 192.168.10.0/24 lookup 100
+
+- Marcar UDP:
+  iptables -t mangle -A PREROUTING -s 192.168.10.0/24 -p udp -j MARK --set-mark 5
+  ip rule add prio 90 fwmark 5 lookup 200
+
+- Bloqueos DNS:
+  ip route add unreachable 8.8.8.8/32 table 100   # en R6101 (+ main y 200)
+  ip route add blackhole 8.8.8.8/32               # en R6201
+
+- Ruta por defecto en OSPF (R6201 en vtysh):
+  router ospf
+    default-information originate always

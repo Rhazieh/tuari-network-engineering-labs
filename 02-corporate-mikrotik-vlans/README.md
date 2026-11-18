@@ -17,3 +17,10 @@ Enterprise network design project covering physical infrastructure, L2/L3 segmen
 - **Perimeter & Directory Services:**
   - Web traffic filtering and caching with **Squid Proxy**.
   - Centralized user authentication and directory integration via **LDAP**.
+
+---
+
+## Included Technical Artifacts
+
+- [`Diagrama-Redes-Corporativas.drawio`](./Diagrama-Redes-Corporativas.drawio) — Full physical/logical Draw.io diagram covering central headquarters, branches, VLAN trunks, Cat.6/fiber cabling, and WAN failover links.
+- [`Informe_Redes_Corporativas.pdf`](./Informe_Redes_Corporativas.pdf) — Complete architectural specification report (bill of materials, addressing plan, VLAN segmentation, MikroTik failover design, and Squid/LDAP architecture).

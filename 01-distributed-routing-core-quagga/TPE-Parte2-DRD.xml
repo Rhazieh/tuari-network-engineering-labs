@@ -1,0 +1,473 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scenario>
+  <networks />
+  <devices>
+    <device id="1" name="R6001" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="289.0" y="126.0" lat="47.57802110271024" lon="-122.12843002199332" alt="2.0" />
+      <services>
+        <service name="BGP" />
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="OSPFv2" />
+      </services>
+    </device>
+    <device id="2" name="R6002" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="419.0" y="48.0" lat="47.57873010687212" lon="-122.1266783071893" alt="2.0" />
+      <services>
+        <service name="BGP" />
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="OSPFv2" />
+      </services>
+    </device>
+    <device id="3" name="R6003" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="553.0" y="127.0" lat="47.57801201285095" lon="-122.1248726934682" alt="2.0" />
+      <services>
+        <service name="BGP" />
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="OSPFv2" />
+      </services>
+    </device>
+    <device id="4" name="R6101" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="94.0" y="203.0" lat="47.57732117892815" lon="-122.13105759419936" alt="2.0" />
+      <services>
+        <service name="BGP" />
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="OSPFv2" />
+        <service name="StaticRoute" />
+      </services>
+    </device>
+    <device id="5" name="R6102" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="92.0" y="338.0" lat="47.57609401724743" lon="-122.1310845436579" alt="2.0" />
+      <services>
+        <service name="zebra" />
+        <service name="OSPFv2" />
+        <service name="IPForward" />
+        <service name="RIP" />
+      </services>
+    </device>
+    <device id="6" name="R6103" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="93.0" y="474.0" lat="47.574857736399316" lon="-122.13107106892865" alt="2.0" />
+      <services>
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="RIP" />
+      </services>
+    </device>
+    <device id="7" name="R6104" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="253.0" y="395.0" lat="47.57557587368032" lon="-122.12891511224676" alt="2.0" />
+      <services>
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="RIP" />
+      </services>
+    </device>
+    <device id="8" name="R6201" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="756.0" y="128.0" lat="47.57800292299009" lon="-122.12213732342808" alt="2.0" />
+      <services>
+        <service name="BGP" />
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="OSPFv2" />
+        <service name="StaticRoute" />
+      </services>
+    </device>
+    <device id="9" name="R6202" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="724.0" y="309.0" lat="47.57635763218212" lon="-122.12256851476444" alt="2.0" />
+      <services>
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="OSPFv2" />
+      </services>
+    </device>
+    <device id="10" name="R6203" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="781.0" y="453.0" lat="47.57504863461227" lon="-122.1218004551965" alt="2.0" />
+      <services>
+        <service name="zebra" />
+        <service name="IPForward" />
+        <service name="OSPFv2" />
+      </services>
+    </device>
+    <device id="11" name="H6201" icon="" canvas="1" type="PC" class="" image="" compose="" compose_name="">
+      <position x="258.0" y="528.0" lat="47.57436685208464" lon="-122.12884773860046" alt="2.0" />
+      <services>
+        <service name="DefaultRoute" />
+      </services>
+    </device>
+    <device id="12" name="H6202" icon="" canvas="1" type="PC" class="" image="" compose="" compose_name="">
+      <position x="93.0" y="632.0" lat="47.57342143229077" lon="-122.13107106892865" alt="2.0" />
+      <services>
+        <service name="DefaultRoute" />
+      </services>
+    </device>
+    <device id="13" name="H6200" icon="" canvas="1" type="PC" class="" image="" compose="" compose_name="">
+      <position x="722.0" y="585.0" lat="47.573848691426846" lon="-122.12259546422297" alt="2.0" />
+      <services>
+        <service name="DefaultRoute" />
+      </services>
+    </device>
+    <device id="14" name="ADSL" icon="" canvas="1" type="router" class="" image="" compose="" compose_name="">
+      <position x="472.0" y="312.0" lat="47.576330361733184" lon="-122.12596414653841" alt="2.0" />
+      <services>
+        <service name="IPForward" />
+        <service name="StaticRoute" />
+      </services>
+    </device>
+  </devices>
+  <links>
+    <link node1="1" node2="2">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:08" ip4="100.0.4.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:09" ip4="100.0.4.2" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="9" node2="10">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:10" ip4="10.200.8.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:11" ip4="10.200.8.2" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="3" node2="8">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:0c" ip4="200.0.6.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:0d" ip4="200.0.6.2" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="2" node2="3">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:0a" ip4="200.0.5.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:0b" ip4="200.0.5.2" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="4" node2="5">
+      <iface1 id="0" name="eth0" mac="00:00:00:aa:00:00" ip4="10.100.2.2" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:01" ip4="10.100.2.1" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="4" node2="1">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:06" ip4="100.0.3.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:07" ip4="100.0.3.2" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="5" node2="7">
+      <iface1 id="2" name="eth2" mac="00:00:00:aa:00:04" ip4="10.100.1.2" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:05" ip4="10.100.1.1" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="8" node2="9">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:0e" ip4="10.200.7.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:0f" ip4="10.200.7.2" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="10" node2="13">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:12" ip4="192.168.11.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:13" ip4="192.168.11.10" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="5" node2="6">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:02" ip4="10.100.0.2" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:03" ip4="10.100.0.1" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="4" node2="14">
+      <iface1 id="2" name="eth2" mac="00:00:00:aa:00:18" ip4="210.0.0.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:19" ip4="210.0.0.2" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="14" node2="8">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:1a" ip4="220.0.1.1" ip4_mask="24" />
+      <iface2 id="2" name="eth2" mac="00:00:00:aa:00:1b" ip4="220.0.1.2" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="6" node2="12">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:14" ip4="192.168.9.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:15" ip4="192.168.9.10" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+    <link node1="7" node2="11">
+      <iface1 id="1" name="eth1" mac="00:00:00:aa:00:16" ip4="192.168.10.1" ip4_mask="24" />
+      <iface2 id="0" name="eth0" mac="00:00:00:aa:00:17" ip4="192.168.10.10" ip4_mask="24" />
+      <options delay="0" bandwidth="0" loss="0.0" dup="0" jitter="0" unidirectional="0" buffer="0" />
+    </link>
+  </links>
+  <service_configurations>
+    <service name="zebra" node="1">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 100.0.3.2/24
+!
+interface eth1
+  ip address 100.0.4.1/24
+!
+interface lo
+  ip address 4.4.4.4/32
+!
+router ospf
+  ospf router-id 4.4.4.4
+  network 4.4.4.4/32 area 0.0.0.0
+  network 100.0.4.0/24 area 0.0.0.0
+!
+router bgp 6000
+  bgp router-id 100.0.3.2
+  redistribute connected
+  redistribute ospf
+  neighbor 100.0.3.1 remote-as 6100
+  neighbor 100.0.3.1 next-hop-self
+  neighbor 5.5.5.5 remote-as 6000
+  neighbor 5.5.5.5 update-source lo
+  neighbor 5.5.5.5 next-hop-self
+  neighbor 6.6.6.6 remote-as 6000
+  neighbor 6.6.6.6 update-source lo
+  neighbor 6.6.6.6 next-hop-self
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="2">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 100.0.4.2/24
+!
+interface eth1
+  ip address 200.0.5.1/24
+!
+interface lo
+  ip address 5.5.5.5/32
+!
+router ospf
+  ospf router-id 5.5.5.5
+  network 5.5.5.5/32 area 0.0.0.0
+  network 100.0.4.0/24 area 0.0.0.0
+  network 200.0.5.0/24 area 0.0.0.0
+!
+router bgp 6000
+  bgp router-id 5.5.5.5
+  redistribute connected
+  redistribute ospf
+  neighbor 4.4.4.4 remote-as 6000
+  neighbor 4.4.4.4 update-source lo
+  neighbor 4.4.4.4 next-hop-self
+  neighbor 6.6.6.6 remote-as 6000
+  neighbor 6.6.6.6 update-source lo
+  neighbor 6.6.6.6 next-hop-self
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="3">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 200.0.5.2/24
+!
+interface eth1
+  ip address 200.0.6.1/24
+!
+interface lo
+  ip address 6.6.6.6/32
+!
+router ospf
+  ospf router-id 6.6.6.6
+  network 6.6.6.6/32 area 0.0.0.0
+  network 200.0.5.0/24 area 0.0.0.0
+!
+router bgp 6000
+  bgp router-id 200.0.6.1
+  redistribute connected
+  redistribute ospf
+  neighbor 200.0.6.2 remote-as 6200
+  neighbor 200.0.6.2 next-hop-self
+  neighbor 4.4.4.4 remote-as 6000
+  neighbor 4.4.4.4 update-source lo
+  neighbor 4.4.4.4 next-hop-self
+  neighbor 5.5.5.5 remote-as 6000
+  neighbor 5.5.5.5 update-source lo
+  neighbor 5.5.5.5 next-hop-self
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="4">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 10.100.2.2/24
+!
+interface eth1
+  ip address 100.0.3.1/24
+!
+interface eth2
+  shutdown
+!
+router ospf
+  ospf router-id 10.100.2.2
+  redistribute connected
+  redistribute bgp
+  network 10.100.2.0/24 area 0.0.0.0
+!
+router bgp 6100
+  bgp router-id 100.0.3.1
+  redistribute connected
+  redistribute ospf
+  neighbor 100.0.3.2 remote-as 6000
+  neighbor 100.0.3.2 next-hop-self
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="5">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 10.100.2.1/24
+!
+interface eth1
+  ip address 10.100.0.2/24
+!
+interface eth2
+  ip address 10.100.1.2/24
+!
+router rip
+  redistribute connected
+  redistribute static
+  redistribute ospf
+  network 10.100.0.0/24
+  network 10.100.1.0/24
+!
+router ospf
+  ospf router-id 10.100.2.1
+  redistribute connected
+  redistribute rip
+  network 10.100.2.0/24 area 0.0.0.0
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="6">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 10.100.0.1/24
+!
+interface eth1
+  ip address 192.168.9.1/24
+!
+router rip
+  redistribute connected
+  redistribute static
+  network 10.100.0.0/24
+  network 192.168.9.0/24
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="7">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 10.100.1.1/24
+!
+interface eth1
+  ip address 192.168.10.1/24
+!
+router rip
+  redistribute connected
+  redistribute static
+  network 10.100.1.0/24
+  network 192.168.10.0/24
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="8">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 200.0.6.2/24
+!
+interface eth1
+  ip address 10.200.7.1/24
+!
+interface eth2
+  shutdown
+!
+router ospf
+  ospf router-id 10.200.7.1
+  redistribute connected
+  redistribute bgp
+  network 10.200.7.0/24 area 0.0.0.0
+!
+router bgp 6200
+  bgp router-id 10.200.7.1
+  redistribute connected
+  redistribute ospf
+  neighbor 200.0.6.1 remote-as 6000
+  neighbor 200.0.6.1 next-hop-self
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="9">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 10.200.7.2/24
+!
+interface eth1
+  ip address 10.200.8.1/24
+!
+router ospf
+  ospf router-id 10.200.7.2
+  network 10.200.7.0/24 area 0.0.0.0
+  network 10.200.8.0/24 area 0.0.0.0
+!</template>
+      </templates>
+    </service>
+    <service name="zebra" node="10">
+      <templates>
+        <template name="/usr/local/etc/quagga/Quagga.conf">interface eth0
+  ip address 10.200.8.2/24
+!
+interface eth1
+  ip address 192.168.11.1/24
+!
+router ospf
+  ospf router-id 10.200.8.2
+  network 10.200.8.0/24 area 0.0.0.0
+  network 192.168.11.0/24 area 0.0.0.0
+!</template>
+      </templates>
+    </service>
+    <service name="StaticRoute" node="4">
+      <templates>
+        <template name="staticroute.sh">#!/bin/sh
+ip link set eth2 down</template>
+      </templates>
+    </service>
+    <service name="StaticRoute" node="8">
+      <templates>
+        <template name="staticroute.sh">#!/bin/sh
+ip link set eth2 down</template>
+      </templates>
+    </service>
+    <service name="StaticRoute" node="14">
+      <templates>
+        <template name="staticroute.sh">#!/bin/sh
+ip link set eth0 down
+ip link set eth1 down</template>
+      </templates>
+    </service>
+  </service_configurations>
+  <session_origin lat="47.579166412353516" lon="-122.13232421875" alt="2.0" scale="150.0" />
+  <session_options>
+    <configuration name="controlnet" value="" />
+    <configuration name="controlnet0" value="" />
+    <configuration name="controlnet1" value="" />
+    <configuration name="controlnet2" value="" />
+    <configuration name="controlnet3" value="" />
+    <configuration name="controlnet_updown_script" value="" />
+    <configuration name="enablerj45" value="1" />
+    <configuration name="preservedir" value="0" />
+    <configuration name="enablesdt" value="0" />
+    <configuration name="sdturl" value="tcp://127.0.0.1:50000/" />
+    <configuration name="ovs" value="0" />
+    <configuration name="platform_id_start" value="1" />
+    <configuration name="nem_id_start" value="1" />
+    <configuration name="link_enabled" value="1" />
+    <configuration name="loss_threshold" value="30" />
+    <configuration name="link_interval" value="1" />
+    <configuration name="link_timeout" value="4" />
+    <configuration name="mtu" value="0" />
+    <configuration name="checksums" value="0" />
+  </session_options>
+  <session_metadata>
+    <configuration name="shapes" value="[{&quot;canvas&quot;: 1, &quot;type&quot;: &quot;rectangle&quot;, &quot;iconcoords&quot;: [225.0, 20.0, 604.0, 188.0], &quot;label&quot;: &quot;                                                                        AS6000&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 12, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;#ff7400&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 2, &quot;bold&quot;: true, &quot;italic&quot;: false, &quot;underline&quot;: false}, {&quot;canvas&quot;: 1, &quot;type&quot;: &quot;text&quot;, &quot;iconcoords&quot;: [132.0, 302.0], &quot;label&quot;: &quot;OSPF&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 9, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 1, &quot;bold&quot;: true, &quot;italic&quot;: true, &quot;underline&quot;: false}, {&quot;canvas&quot;: 1, &quot;type&quot;: &quot;text&quot;, &quot;iconcoords&quot;: [213.0, 649.0], &quot;label&quot;: &quot;RIP&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 12, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 1, &quot;bold&quot;: true, &quot;italic&quot;: false, &quot;underline&quot;: false}, {&quot;canvas&quot;: 1, &quot;type&quot;: &quot;text&quot;, &quot;iconcoords&quot;: [807.0, 226.0], &quot;label&quot;: &quot;OSPF&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 10, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 1, &quot;bold&quot;: true, &quot;italic&quot;: false, &quot;underline&quot;: false}, {&quot;canvas&quot;: 1, &quot;type&quot;: &quot;rectangle&quot;, &quot;iconcoords&quot;: [666.0, 127.0, 829.0, 629.0], &quot;label&quot;: &quot;&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 12, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;#CFCFFF&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 2, &quot;bold&quot;: false, &quot;italic&quot;: false, &quot;underline&quot;: false}, {&quot;canvas&quot;: 1, &quot;type&quot;: &quot;text&quot;, &quot;iconcoords&quot;: [800.0, 138.0], &quot;label&quot;: &quot;AS6200&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 10, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 1, &quot;bold&quot;: true, &quot;italic&quot;: false, &quot;underline&quot;: false}, {&quot;canvas&quot;: 1, &quot;type&quot;: &quot;rectangle&quot;, &quot;iconcoords&quot;: [12.0, 207.0, 299.0, 676.0], &quot;label&quot;: &quot;&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 12, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;#ffff5b&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 2, &quot;bold&quot;: false, &quot;italic&quot;: false, &quot;underline&quot;: false}, {&quot;canvas&quot;: 1, &quot;type&quot;: &quot;rectangle&quot;, &quot;iconcoords&quot;: [18.0, 205.0, 160.0, 424.0], &quot;label&quot;: &quot;&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 12, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;#CFCFFF&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 1, &quot;bold&quot;: false, &quot;italic&quot;: false, &quot;underline&quot;: false}, {&quot;canvas&quot;: 1, &quot;type&quot;: &quot;text&quot;, &quot;iconcoords&quot;: [265.0, 219.0], &quot;label&quot;: &quot;AS6100&quot;, &quot;fontfamily&quot;: &quot;Arial&quot;, &quot;fontsize&quot;: 12, &quot;labelcolor&quot;: &quot;#000000&quot;, &quot;color&quot;: &quot;&quot;, &quot;border&quot;: &quot;#000000&quot;, &quot;width&quot;: 1, &quot;bold&quot;: true, &quot;italic&quot;: false, &quot;underline&quot;: false}]" />
+    <configuration name="edges" value="[]" />
+    <configuration name="hidden" value="[]" />
+    <configuration name="canvas" value="{&quot;gridlines&quot;: true, &quot;canvases&quot;: [{&quot;id&quot;: 1, &quot;wallpaper&quot;: null, &quot;wallpaper_style&quot;: 1, &quot;fit_image&quot;: false, &quot;dimensions&quot;: [1000, 750]}]}" />
+  </session_metadata>
+</scenario>
+

@@ -1,0 +1,127 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="YRGVNBZxacMpQuD-d2OJ">
+    <mxGraphModel dx="682" dy="1220" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" mermaidData="{&#xa;  &quot;data&quot;: &quot;graph TD\n    %% Estilos Generales\n    classDef internet fill:#f9f,stroke:#333,stroke-width:2px;\n    classDef central fill:#bbf,stroke:#333,stroke-width:2px;\n    classDef sucursal fill:#bfb,stroke:#333,stroke-width:2px;\n    classDef equipos fill:#fff,stroke:#333,stroke-width:1px;\n\n    subgraph Internet_Cloud [Nube de Internet]\n        ISP[Proveedor ISP Central]:::internet\n    end\n    \n    subgraph Central [Edificio Central - Subsuelo Data Center]\n        R_Central[Router MikroTik Principal]:::central\n        SW_L3[Switch Capa 3 - Enrutamiento Inter-VLAN]:::central\n        SW_L2_DC[Switch Capa 2 - Distribución Servidores]:::central\n        Servidores[(Servidores Core: DHCP, DNS, LDAP, Proxy Squid, SMTP)]:::equipos\n    end\n\n    subgraph Pisos [Edificio Central - Oficinas Administrativas Pisos 1 y 2]\n        SW_Piso1[Switch Capa 2 - Distribución Piso 1]:::central\n        SW_Piso2[Switch Capa 2 - Distribución Piso 2]:::central\n        AP_Admin[AP Wi-Fi Administración - Autenticación 802.1X]:::equipos\n        SUM_AP[AP Wi-Fi SUM - Portal Cautivo Hotspot]:::equipos\n        Admin_PCs[3 PCs por Sector: Ventas, Compras, Contaduría, Tesorería, Soporte]:::equipos\n    end\n\n    subgraph Colectora [Sucursal Colectora Norte - Galpón 10x50m]\n        R_Colectora[Router MikroTik Local]:::sucursal\n        SW_Colectora[Switch Capa 2 Acceso]:::sucursal\n        Cajas_Col[8 Cajas de Cobro Cableadas + PC Administración]:::equipos\n    end\n\n    subgraph Vela_Suc [Sucursal Vela - Galpón 10x20m]\n        R_Vela[Router MikroTik Local]:::sucursal\n        SW_Vela[Switch Capa 2 Acceso]:::sucursal\n        Cajas_Vela[3 Cajas de Cobro Cableadas + PC Administración]:::equipos\n    end\n\n    %% Conexiones Físicas y Lógicas Core Central\n    ISP --- R_Central\n    [span_0](start_span)R_Central --- SW_L3[span_0](end_span)\n    [span_1](start_span)SW_L3 --- SW_L2_DC[span_1](end_span)\n    [span_2](start_span)SW_L2_DC --- Servidores[span_2](end_span)\n    \n    %% Cableado Vertical y Horizontal de la Central\n    SW_L3 --- |Fibra Óptica Multimodo Backbone vertical| [span_3](start_span)[span_4](start_span)SW_Piso1[span_3](end_span)[span_4](end_span)\n    SW_L3 --- |Fibra Óptica Multimodo Backbone vertical| [span_5](start_span)[span_6](start_span)SW_Piso2[span_5](end_span)[span_6](end_span)\n    SW_Piso1 --- |Cableado UTP Cat6 Horizontal| [span_7](start_span)[span_8](start_span)Admin_PCs[span_7](end_span)[span_8](end_span)\n    [span_9](start_span)SW_Piso1 --- AP_Admin[span_9](end_span)\n    [span_10](start_span)[span_11](start_span)SW_Piso2 --- SUM_AP[span_10](end_span)[span_11](end_span)\n\n    %% Enlaces WAN hacia Sucursales Periféricas\n    R_Central === |Enlace Principal: Fibra Óptica ISP FTTx| [span_12](start_span)R_Colectora[span_12](end_span)\n    R_Central -.- |Enlace Respaldo: Radioenlace WISP| [span_13](start_span)R_Colectora[span_13](end_span)\n    R_Central ==&gt; |Túnel Cifrado VPN sobre Banda Ancha| [span_14](start_span)[span_15](start_span)R_Vela[span_14](end_span)[span_15](end_span)\n\n    %% Redes Internas de las Sucursales\n    [span_16](start_span)R_Colectora --- SW_Colectora[span_16](end_span)\n    SW_Colectora --- |VLAN Cajas + VLAN Admin| [span_17](start_span)[span_18](start_span)Cajas_Col[span_17](end_span)[span_18](end_span)\n    [span_19](start_span)R_Vela --- SW_Vela[span_19](end_span)\n    SW_Vela --- |VLAN Cajas + VLAN Admin| [span_20](start_span)[span_21](start_span)Cajas_Vela[span_20](end_span)[span_21](end_span)\n&quot;,&#xa;  &quot;config&quot;: null&#xa;}" id="9zjbwiLizRp2Y1zd26qU-1">
+          <mxCell connectable="0" parent="1" style="group;transparentBounds=1;editIcon=1;lockedGroup=1;groupPadding=20;" vertex="1">
+            <mxGeometry as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Nube de Internet" mermaidId="n:Internet_Cloud" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Nube de Internet" id="9zjbwiLizRp2Y1zd26qU-2">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-1" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="124" width="285" x="52" y="236" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Proveedor ISP Central" mermaidId="n:ISP" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#f9f;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Proveedor ISP Central" id="9zjbwiLizRp2Y1zd26qU-3">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-2" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#f9f;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="215" x="35" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Edificio Central - Subsuelo Data Center" mermaidId="n:Central" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Edificio Central - Subsuelo Data Center" id="9zjbwiLizRp2Y1zd26qU-4">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-1" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="137" width="1547" x="40" y="630" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Router MikroTik Principal" mermaidId="n:R_Central" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Router MikroTik Principal" id="9zjbwiLizRp2Y1zd26qU-5">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-4" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="239" x="35" y="52" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Switch Capa 3 - Enrutamiento Inter-VLAN" mermaidId="n:SW_L3" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Switch Capa 3 - Enrutamiento Inter-VLAN" id="9zjbwiLizRp2Y1zd26qU-6">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-4" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="351" x="324" y="52" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Switch Capa 2 - Distribución Servidores" mermaidId="n:SW_L2_DC" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Switch Capa 2 - Distribución Servidores" id="9zjbwiLizRp2Y1zd26qU-7">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-4" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="338" x="725" y="52" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Servidores Core: DHCP, DNS, LDAP, Proxy Squid, SMTP" mermaidId="n:Servidores" mermaidBaseStyle="html=1;shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=1;whiteSpace=wrap;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Servidores Core: DHCP, DNS, LDAP, Proxy Squid, SMTP" id="9zjbwiLizRp2Y1zd26qU-8">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-4" style="html=1;shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=10;strokeWidth=1;whiteSpace=wrap;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="67" width="399" x="1113" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Edificio Central - Oficinas Administrativas Pisos 1 y 2" mermaidId="n:Pisos" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Edificio Central - Oficinas Administrativas Pisos 1 y 2" id="9zjbwiLizRp2Y1zd26qU-9">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-1" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="535" width="600" x="372" y="40" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Switch Capa 2 - Distribución Piso 1" mermaidId="n:SW_Piso1" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Switch Capa 2 - Distribución Piso 1" id="9zjbwiLizRp2Y1zd26qU-10">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-9" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="307" x="147" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Switch Capa 2 - Distribución Piso 2" mermaidId="n:SW_Piso2" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Switch Capa 2 - Distribución Piso 2" id="9zjbwiLizRp2Y1zd26qU-11">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-9" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bbf;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="307" x="147" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="AP Wi-Fi Administración - Autenticación 802.1X" mermaidId="n:AP_Admin" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="AP Wi-Fi Administración - Autenticación 802.1X" id="9zjbwiLizRp2Y1zd26qU-12">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-9" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="396" x="102" y="253" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="AP Wi-Fi SUM - Portal Cautivo Hotspot" mermaidId="n:SUM_AP" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="AP Wi-Fi SUM - Portal Cautivo Hotspot" id="9zjbwiLizRp2Y1zd26qU-13">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-9" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="332" x="134" y="357" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="3 PCs por Sector: Ventas, Compras, Contaduría, Tesorería, Soporte" mermaidId="n:Admin_PCs" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="3 PCs por Sector: Ventas, Compras, Contaduría, Tesorería, Soporte" id="9zjbwiLizRp2Y1zd26qU-14">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-9" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="530" x="35" y="461" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Sucursal Colectora Norte - Galpón 10x50m" mermaidId="n:Colectora" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Sucursal Colectora Norte - Galpón 10x50m" id="9zjbwiLizRp2Y1zd26qU-15">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-1" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="327" width="479" x="1022" y="144" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Router MikroTik Local" mermaidId="n:R_Colectora" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bfb;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Router MikroTik Local" id="9zjbwiLizRp2Y1zd26qU-16">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-15" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bfb;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="215" x="132" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Switch Capa 2 Acceso" mermaidId="n:SW_Colectora" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bfb;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Switch Capa 2 Acceso" id="9zjbwiLizRp2Y1zd26qU-17">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-15" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bfb;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="219" x="130" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="8 Cajas de Cobro Cableadas + PC Administración" mermaidId="n:Cajas_Col" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="8 Cajas de Cobro Cableadas + PC Administración" id="9zjbwiLizRp2Y1zd26qU-18">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-15" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="409" x="35" y="253" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Sucursal Vela - Galpón 10x20m" mermaidId="n:Vela_Suc" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Sucursal Vela - Galpón 10x20m" id="9zjbwiLizRp2Y1zd26qU-19">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-1" style="html=1;whiteSpace=wrap;strokeWidth=1;verticalAlign=top;fillColor=light-dark(#ffffde,#1f2020);strokeColor=light-dark(#aaaa33,#cccccc);fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="327" width="479" x="1551" y="144" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Router MikroTik Local" mermaidId="n:R_Vela" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bfb;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Router MikroTik Local" id="9zjbwiLizRp2Y1zd26qU-20">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-19" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bfb;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="215" x="132" y="45" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Switch Capa 2 Acceso" mermaidId="n:SW_Vela" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bfb;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="Switch Capa 2 Acceso" id="9zjbwiLizRp2Y1zd26qU-21">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-19" style="html=1;whiteSpace=wrap;strokeWidth=2;fillColor=#bfb;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="219" x="130" y="149" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="3 Cajas de Cobro Cableadas + PC Administración" mermaidId="n:Cajas_Vela" mermaidBaseStyle="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" mermaidBaseValue="3 Cajas de Cobro Cableadas + PC Administración" id="9zjbwiLizRp2Y1zd26qU-22">
+          <mxCell parent="9zjbwiLizRp2Y1zd26qU-19" style="html=1;whiteSpace=wrap;strokeWidth=1;fillColor=default;strokeColor=#333;fontColor=light-dark(#333333,#cccccc);fontFamily=Trebuchet MS,Verdana,Arial,sans-serif;fontSize=16;" vertex="1">
+            <mxGeometry height="54" width="409" x="35" y="253" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" mermaidId="e:ISP-&gt;R_Central#0" mermaidBaseStyle="curved=1;startArrow=none;endArrow=none;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;" mermaidBaseValue="" id="9zjbwiLizRp2Y1zd26qU-23">
+          <mxCell edge="1" parent="9zjbwiLizRp2Y1zd26qU-1" source="9zjbwiLizRp2Y1zd26qU-3" style="curved=1;startArrow=none;endArrow=none;strokeColor=light-dark(#333333,#cccccc);exitX=0.5;exitY=1;entryX=0.5;entryY=0;rounded=0;fontSize=12;startSize=8;endSize=8;" target="9zjbwiLizRp2Y1zd26qU-5">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -39,3 +39,13 @@ Comprehensive distributed networking lab designed and validated in **CORE (Commo
 5. **Filtering Policy (`unreachable` vs `blackhole`):**
    - Blocked Google DNS (`8.8.8.8/32`, `8.8.4.4/32`) on `R6101` inside tables `100` and `200` with **`unreachable`** routes (returning `Destination Host Unreachable` ICMP feedback to `AS6100`).
    - Blocked the same destinations on `R6201` using **`blackhole`** routes paired with OSPF `default-information originate` (silently dropping packets with `100%` loss and zero ICMP reply to `AS6200`).
+
+---
+
+## Included Technical Artifacts
+
+- [`TPE-Parte2-DRD.xml`](./TPE-Parte2-DRD.xml) — CORE network topology with Quagga OSPFv2, RIPv2, eBGP, and iBGP over Loopbacks (`Part 2`).
+- [`TPE-Parte4-DRD.xml`](./TPE-Parte4-DRD.xml) — Final extended CORE topology adding the ADSL WAN path, `sit1` IPv6-in-IPv4 tunnel, PBR tables, `fwmark` mangling, and DNS filtering (`Part 4`).
+- [`configurar_tpe.bash`](./configurar_tpe.bash) — Automated Bash/vtysh/`iproute2`/`iptables` configuration script applied across running CORE router namespaces.
+- [`capturas_tpe.bash`](./capturas_tpe.bash) — Automated verification script capturing BGP summaries, FIB routing tables, `ip rule` selectors, and `ping`/`traceroute` outputs across nodes.
+- [`machete-defensa-drd.txt`](./machete-defensa-drd.txt) — Defense reference cheat-sheet summarizing AD values, Quagga daemon behavior, `sit` tunnel mechanics, RPDB/fwmark flow, and `unreachable` vs `blackhole`.
